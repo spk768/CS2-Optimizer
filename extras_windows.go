@@ -4,7 +4,6 @@ package main
 
 import (
 	"fmt"
-	"path/filepath"
 	"runtime"
 	"strings"
 	"sync/atomic"
@@ -59,27 +58,20 @@ func x3dDualCCD() (bool, uint64) {
 
 // closePrograms fecha os programas escolhidos; navegadores recebem fechamento normal
 func closePrograms(sel []bool) {
-	taskkill := filepath.Join(system32(), "taskkill.exe")
 	closed := 0
-	run := func(names []string, force bool) {
-		for _, n := range names {
-			if len(findProcesses(n)) == 0 {
-				continue
-			}
-			args := []string{"/IM", n, "/T"}
-			if force {
-				args = append([]string{"/F"}, args...)
-			}
-			if _, err := runHidden(taskkill, args...); err == nil {
+	if sel[extraLaunchers] {
+		for _, n := range launcherProcs {
+			if terminateByName(n) > 0 {
 				closed++
 			}
 		}
 	}
-	if sel[extraLaunchers] {
-		run(launcherProcs, true)
-	}
 	if sel[extraBrowsers] {
-		run(browserProcs, false)
+		for _, n := range browserProcs {
+			if closeGracefully(n) > 0 {
+				closed++
+			}
+		}
 	}
 	if closed > 0 {
 		logf("%d programa(s) fechado(s) antes do jogo.", closed)

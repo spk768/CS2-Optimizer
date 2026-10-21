@@ -78,7 +78,7 @@ func benchMapInstalled() bool {
 }
 
 func openBenchMapPage() {
-	runHidden(filepath.Join(os.Getenv("SystemRoot"), "explorer.exe"), "steam://url/CommunityFilePage/"+benchWorkshopID)
+	openURL("steam://url/CommunityFilePage/" + benchWorkshopID)
 }
 
 func consoleLogPath() string {
@@ -124,7 +124,7 @@ func waitBenchmark(done func(benchResult, error)) {
 				r := benchResult{time.Now(), avg, p1}
 				saveBenchResult(r)
 				time.Sleep(2 * time.Second)
-				runHidden(filepath.Join(system32(), "taskkill.exe"), "/IM", "cs2.exe", "/F")
+				terminateByName("cs2.exe")
 				done(r, nil)
 				return
 			}

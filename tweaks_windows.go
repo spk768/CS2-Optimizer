@@ -304,20 +304,6 @@ func clearTemp() (int64, int) {
 	return freed, count
 }
 
-func createRestorePoint() error {
-	ps := filepath.Join(system32(), "WindowsPowerShell", "v1.0", "powershell.exe")
-	out, err := runHidden(ps, "-NoProfile", "-NonInteractive", "-Command",
-		"Checkpoint-Computer -Description 'CS2 Optimizer' -RestorePointType 'MODIFY_SETTINGS' -ErrorAction Stop")
-	if err != nil {
-		msg := strings.TrimSpace(out)
-		if len(msg) > 160 {
-			msg = msg[:160] + "..."
-		}
-		return errors.New(msg)
-	}
-	return nil
-}
-
 // ---------- Prioridade do CS2 ----------
 
 func findProcesses(exe string) []uint32 {

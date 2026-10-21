@@ -39,7 +39,7 @@ jobs:
           CGO_ENABLED: "0"
         run: |
           go vet .
-          go build -trimpath -ldflags "-H windowsgui -s -w" -o "CS2 Optimizer.exe" .
+          go build -trimpath -ldflags "-H windowsgui" -o "CS2 Optimizer.exe" .
 
       - uses: actions/upload-artifact@v4
         with:

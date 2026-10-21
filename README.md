@@ -73,14 +73,14 @@ Precisa de [Go 1.24+](https://go.dev/dl/) e Python 3 com Pillow (para gerar íco
 ```bash
 pip install pillow
 python tools/mkres.py rsrc_windows_amd64.syso
-GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -trimpath -ldflags "-H windowsgui -s -w" -o "CS2 Optimizer.exe" .
+GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -trimpath -ldflags "-H windowsgui" -o "CS2 Optimizer.exe" .
 ```
 
 No Windows (PowerShell), troque a última linha por:
 
 ```powershell
 $env:GOOS="windows"; $env:GOARCH="amd64"; $env:CGO_ENABLED="0"
-go build -trimpath -ldflags "-H windowsgui -s -w" -o "CS2 Optimizer.exe" .
+go build -trimpath -ldflags "-H windowsgui" -o "CS2 Optimizer.exe" .
 ```
 
 Os testes (`go test ./...`) rodam em qualquer sistema e também geram prévias da interface (`preview.png`).
