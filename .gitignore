@@ -1,0 +1,7 @@
+# gerados
+*.exe
+*.syso
+preview*.png
+preview*.json
+preview-margin.txt
+icon-preview.png
