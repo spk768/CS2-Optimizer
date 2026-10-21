@@ -87,7 +87,7 @@ Os testes (`go test ./...`) rodam em qualquer sistema e também geram prévias d
 
 ### Publicar uma versão
 
-Na página do repositório, vá em **Releases → Draft a new release**, crie uma tag (por exemplo, `v2.0.1`) e clique em **Publish release**. O GitHub Actions compila e anexa o `CS2 Optimizer.exe` ao Release automaticamente em alguns minutos (empurrar uma tag pelo git também funciona).
+Na página do repositório, vá em **Releases → Draft a new release**, crie uma tag (por exemplo, `v2.0.1`) e clique em **Publish release**. O GitHub Actions compila e anexa o `CS2 Optimizer.exe` ao Release automaticamente em alguns minutos.
 
 ## Estrutura
 
