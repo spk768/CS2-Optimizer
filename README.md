@@ -87,7 +87,7 @@ Os testes (`go test ./...`) rodam em qualquer sistema e também geram prévias d
 
 ### Publicar uma versão
 
-Crie uma tag `v*` (por exemplo, `git tag v2.0.0 && git push --tags`). O GitHub Actions compila e anexa o `.exe` ao Release automaticamente.
+Na página do repositório, vá em **Releases → Draft a new release**, crie uma tag `v*` (por exemplo, `v2.0.0`) e clique em **Publish release**. O GitHub Actions compila e anexa o `CS2 Optimizer.exe` ao Release automaticamente em alguns minutos (empurrar uma tag `v*` pelo git também funciona).
 
 ## Estrutura
 
